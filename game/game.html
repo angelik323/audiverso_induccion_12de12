@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inducción</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="css/sound.css">
+
+    <!--====== Favicon Icon ======-->
+    <link rel="shortcut icon" href="img/favicon.png" type="image/png">
+</head>
+
+<body>
+    <div class="button-gem-map-mb">
+        <a onclick="initWin('map')" class="continueButton-mb" data-bs-toggle="modal" data-bs-target="#winGem">
+            <img class="animate__bounceIn bt-map" src="https://takesolut.com/audifarma/img/Buttons/Map.png" alt="Ver Mapa">
+        </a>
+        <a onclick="initWin('gems')" class="continueButton-mb" data-bs-toggle="modal" data-bs-target="#winGem">
+            <img class="animate__bounceIn bt-gem" src="https://takesolut.com/audifarma/img/Buttons/Gems.png" alt="Ver Gemas">
+        </a>
+    </div>
+    <div class="button-gem-map">
+        <a onclick="initWin('map')" class="continueButton" data-bs-toggle="modal" data-bs-target="#winGem">
+            <img class="animate__bounceIn" src="https://takesolut.com/audifarma/img/Buttons/Map.png" alt="Ver Mapa">
+        </a>
+        <a onclick="initWin('gems')" class="continueButton" data-bs-toggle="modal" data-bs-target="#winGem">
+            <img class="animate__bounceIn" src="https://takesolut.com/audifarma/img/Buttons/Gems.png" alt="Ver Gemas">
+        </a>
+    </div>
+
+    <a onclick="initWin('win')" class="winButton" data-bs-toggle="modal" data-bs-target="#winGem">
+        <img class="animate__bounceIn bt-winGem" src="https://takesolut.com/audifarma/img/Buttons/Gems.png" alt="Ver Gemas">
+    </a>
+
+
+    <div class="buttonsOptions">
+        <button class="icon" onclick="initWin('map')" data-bs-toggle="modal" data-bs-target="#winGem">
+            <img src="https://takesolut.com/audifarma/img/icons/map.png" alt="">
+        </button>
+        <button class="icon" onclick="initWin('gems')" data-bs-toggle="modal" data-bs-target="#winGem">
+            <img src="https://takesolut.com/audifarma/img/icons/gems.png" alt="">
+        </button>
+        <button class="icon" data-bs-toggle="modal" data-bs-target="#seeInstruction">
+            <img src="https://takesolut.com/audifarma/img/icons/instructions.png" alt="">
+        </button>
+    </div>
+
+    <div class="contenedorCanva">
+        <canvas class="centrarCanva"></canvas>
+        <div class="grid grid-btn buttonYellowSound forHorizontal">
+            <button type="button" class="btn-sound btn-sound-on" id="btnPlay" aria-label="Enable sound">
+                <svg width="24" height="24" aria-hidden="true">
+                    <path
+                        d="M6 7l8-5v20l-8-5v-10zm-6 10h4v-10h-4v10zm20.264-13.264l-1.497 1.497c1.847 1.783 2.983 4.157 2.983 6.767 0 2.61-1.135 4.984-2.983 6.766l1.498 1.498c2.305-2.153 3.735-5.055 3.735-8.264s-1.43-6.11-3.736-8.264zm-.489 8.264c0-2.084-.915-3.967-2.384-5.391l-1.503 1.503c1.011 1.049 1.637 2.401 1.637 3.888 0 1.488-.623 2.841-1.634 3.891l1.503 1.503c1.468-1.424 2.381-3.309 2.381-5.394z" />
+                </svg>
+            </button>
+        </div>
+    </div>
+
+
+    <!--Modal para botón de Ver Mapa-->
+    <div class="modal fade" id="seeMap" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <canvas class="statusMap" id="myCanvas2" style="margin-left: 0px;"></canvas>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Volver al juego</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--FIN - Modal para botón de Ver Mapa-->
+
+
+    <!--Modal para mostrar imagen desde botón de Ver Gemas -->
+    <div class="modal fade" id="winGem" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img class="statusMap img-fluid" id="winGemImg" style="margin-left: 0px;"></img>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Volver al juego</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--Modal para botón de Ver Instrucciones-->
+    <div class="modal fade" id="seeInstruction" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="imgInstructionsModal">
+                        <img src="https://takesolut.com/audifarma/img/Bg/instructionsGame.png" alt="Instrucciones de juego de Inducción">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"
+                        data-bs-dismiss="modal">Volver al juego</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--FIN - Modal para botón de Ver Instrucciones-->
+
+    <section class="sectionButtonPlay">
+        <div class="btns">
+            <div class="btnUp">
+                <button id="up">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-up-circle" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707V11.5z" />
+                    </svg>
+                </button>
+            </div>
+            <div class="btnsLR">
+                <button id="left">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-left-circle" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-4.5-.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z" />
+                    </svg>
+                </button>
+                <button id="right">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <div class="button-gem-map-mb instructionsNotHorizontal">
+        <img src="https://www.takesolut.com/audifarma/img/Bg/instructionsGame.png" alt="Instrucciones de juego desde mobile vertical">
+    </div>
+
+    
+    <div class="instructions">
+        <a class="continueButton" data-bs-toggle="modal" data-bs-target="#seeInstruction">
+            <img class="animate__bounceIn" src="https://takesolut.com/audifarma/img/Buttons/instructions.png" alt="Ver Instrucciones de juego">
+        </a>
+    </div>
+
+
+    <audio id="soundUp" src="sounds/jump1.wav"></audio>
+    <audio id="soundEnterDoor" src="sounds/enterDoor.wav"></audio>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"
+        integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  	<script src="js/sound.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/scenaries.js"></script>
+    <script src="js/data/collisions.js"></script>
+    <script src="js/classes/collisionBlock.js"></script>
+    <script src="js/classes/Sprite.js"></script>
+    <script src="js/classes/Player.js"></script>
+    <script src="js/eventListeners.js"></script>
+    <script src="game.js"></script>
+    <script src="js/statusMap.js"></script>
+    <script src="js/wingems.js"></script>
+
+</body>
+
+</html>

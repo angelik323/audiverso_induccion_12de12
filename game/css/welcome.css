@@ -1,0 +1,71 @@
+body {
+    background-image: url("https://takesolut.com/audifarma/img/welcome/fondo-Bienvenida.png");
+    background-size: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.maq{border: 1px red solid;}
+.container{
+    width: 75%;
+    max-width: 900px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.items{width: 50%;}
+.title{width: 100%;}
+.continue{
+    width: 100%;
+    text-align: center;
+}
+.title img{width: 100%;}
+.continue img{width: 70%;}
+
+.pergamino{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pergamino img{width: 100%;}
+
+@media (max-width: 900px) and (min-height: 500px) {
+    body{
+        height: auto;
+        padding: 10px 0px;
+    }
+    .items, .pergamino{width: 100%;}
+}
+
+
+
+.video-testimonials {
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.container-testimonials {
+    margin-bottom: auto;
+}
+
+.continue_button_testimonials {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.disabled-button {
+    pointer-events: none;
+    opacity: 0.5;
+    /* Puedes ajustar la opacidad para personalizar el aspecto deshabilitado */
+}
+

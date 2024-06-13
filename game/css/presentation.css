@@ -1,0 +1,72 @@
+body {
+    background-image: url("https://takesolut.com/audifarma/img/Bg/fondo_inicio.jpg");
+    background-size: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.maq{border: 1px red solid;}
+.container{
+    width: 100%;
+    max-width: 750px;
+    position: relative;
+}
+.floatContainer{
+    position: absolute;
+    right: 0px;
+    z-index: 1;
+    width: calc(100% - 300px);
+}
+.floatContainer .title, .floatContainer .continue{width: 100%;}
+
+.title{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.title img{width: 100%;}
+
+.continue{
+    width: 100%;
+    text-align: center;
+}
+.continue img{width: 60%;}
+
+.presentacion_personaje{
+    width: 100%;
+}
+.presentacion_personaje img{
+    width: 100%;
+}
+
+.containerMobile{
+    display: none;
+    width: 90%;
+}
+
+.containerMobile .title img,
+.containerMobile .pergamino img{
+    width: 100%;
+}
+.containerMobile .continue img{
+    width: 75%;
+}
+.containerMobile .buho{text-align: center;}
+.containerMobile .buho img{
+    width: 60%;
+}
+
+@media (max-width: 750px) and (min-height: 500px){
+    .container{display: none;}
+    .containerMobile{display: block;}
+}
+@media (max-height: 500px) {
+    .container{width: 500px;}
+}

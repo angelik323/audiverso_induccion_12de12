@@ -1,0 +1,81 @@
+:root {
+  --black: #262626;
+  --white: #fff;
+  --gray: #5b5b5b;
+}
+
+
+.grid {
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.grid-btn {
+  grid-template-columns: auto auto;
+  grid-gap: 20px;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.grid-images {
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px 70px;
+}
+
+.grid-btn .btn-sound {
+  position: relative;
+  display: flex;
+  padding: 5px;
+  border: 2px solid var(--gray);
+}
+
+.grid-btn .btn-sound-off::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  border-top: 2px solid var(--black);
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.grid-btn .btn-sound svg {
+  fill: var(--black);
+}
+
+.buttonYellowSound {
+ /* position: absolute;
+  margin-bottom: 90%;
+  transform: translate(-50%, 0);
+  margin-left: 75.5%;
+  margin-top: 31%;
+  */
+  
+  display: flex;
+  position: absolute;
+  margin-left: 84%;
+  margin-top: 42%;
+  z-index: 99999;
+}
+
+#btnPlay {
+  background-color: #fdaf06;
+  border-radius: 10px;
+}
+.sectionButtonPlay{
+  margin-top: 35%;
+}
+@media (max-width: 747px) {
+  .sectionButtonPlay{
+    margin-top: 0px;
+  }
+}
+@media (max-height: 470px) {
+  .sectionButtonPlay{
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 14px;
+  }
+}

@@ -1,0 +1,363 @@
+/*TODO:"Organizar con grillas maquetado por secciones la pantalla de juego"*/
+
+html {
+    overflow-y: hidden;
+}
+
+body {
+    background-image: url("https://takesolut.com/audifarma/img/Bg/fondo_prueba.png");
+    background-size: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+
+@media (max-width: 768px) {
+    body {
+        background-image: url("https://takesolut.com/audifarma/img/Bg/mobile/bg-mb2.jpg");
+        background-size: contain;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+}
+
+a {
+    text-decoration: none;
+}
+
+.contenedorCanva {
+    display: flex;
+    justify-content: center;
+}
+
+.centrarCanva {
+    border-radius: 30px;
+    margin: 0 auto;
+    margin-top: 3%;
+    box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+}
+
+.instructions {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    position: relative;
+    bottom: 65px;
+}
+
+.continueButton {
+    cursor: pointer;
+}
+
+
+.button-gem-map {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    cursor: pointer;
+}
+
+.statusMap {
+    border: 1px solid black;
+    background-image: url("https://takesolut.com/audifarma/img/map/mapa.jpg");
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+}
+
+/*=========== |||||| Estilos Modal Mapa   |||||||||========*/
+.modal {
+    z-index: 999999;
+    width: 100%;
+}
+
+.modal-content {
+    align-items: center;
+    background-color: #020202b9;
+}
+
+button.btn.btn-primary {
+    width: 10em;
+    background-color: #fdaf06;
+    color: var(--black);
+    border: 2px solid var(--black);
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+button.btn.btn-primary:hover {
+    background-color: #f38303;
+}
+
+.modal-fullscreen .modal-body {
+    overflow-y: clip;
+}
+/*=========== |||||| FIN - Estilos Modal Mapa   |||||||||========*/
+
+.imgInstructionsModal{
+    padding: 10px;
+}
+.imgInstructionsModal img{width: 100%;}
+
+/*=====================================================*/
+/* -- Estilos responsive botones para vista Tablet -- */
+/*===================================================*/
+@media (max-width: 900px) {
+    html {
+        width: auto;
+    }
+
+    body {
+        margin-top: 5%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    /*|||  ===== Botones ver gemas y ver mapa =====  |||*/
+    .button-gem-map-mb {
+        display: flex;
+        justify-content: center;
+    }
+    
+    .button-gem-map-mb .continueButton-mb {
+    margin: 0 10px;
+    }
+
+    img.animate__bounceIn.bt-map {
+        width: 10em;
+    }
+    
+    img.animate__bounceIn.bt-gem {
+        width: 10.8em;
+    }
+
+    .centrarCanva {
+        border-radius: 30px;
+        margin: 0 auto;
+        margin-top: -4%;
+        box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+    }
+    
+    /*|||  ===== FIN Botones ver gemas y ver mapa =====  |||*/
+
+    .imgInstructions {
+        display: none;
+    }
+
+    .btns {
+        width: 100%;
+        overflow: hidden;
+        align-content: center;
+    }
+
+    .btnsLR {
+        float: left;
+        margin-left: 4%;
+        padding: 3% 0 0 0;
+    }
+
+    .btnUp {
+        float: right;
+        text-align: right;
+        padding: 3% 0 0 0;
+        margin-right: 4%;
+    }
+
+    .btnUp button {
+        margin-left: 5px;
+    }
+
+    .sectionButtonPlay {
+        max-height: 100%;
+        position: relative;
+    }
+    
+    #up, #left, #right {
+        background-color: #8f8f8f8f;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        font-family: inherit;
+        margin: 0;
+        border: none;
+        box-shadow: 6px 5px 9px -2px inset white, 0px 0px 5px 2px #0000005c;
+    }
+    
+    #up, #left, #right:not(:last-child) {
+        margin-right: 10px;
+    }
+
+    .button-gem-map {
+        display: none;
+    }
+}
+
+@media (min-width: 900px) {
+    .btns {
+        display: none;
+    }
+
+    .button-gem-map-mb {
+        display: none;
+    }
+
+}
+
+/*====== |||||| FIN - Estilos responsive botones Mobile   ||||||======*/
+
+
+
+/*=================================================================*/
+/* --  Estilos para resoluciones de 1700px o más Instrucciones -- */
+/*===============================================================*/
+@media screen and (min-width: 1700px) {
+    /* Aquí van los estilos que se aplicarán a pantallas con una resolución de 1700px o más */
+    .instructions {
+        margin-top: -40em;
+    }
+}
+/*==== ||| FIN - Instrucciones resolución grande  ||||====*/
+
+
+/*====================================================*/
+/* -- Estilos para resoluciones de 1400px o menos -- */
+/*==================================================*/
+/*  */
+@media screen and (max-width: 1800px) {
+    .instructions {
+        margin-top: -28em;
+    }
+}
+/*==== ||| FIN - Instrucciones resolución grande  ||||====*/
+
+
+/*===================================================================*/
+/* -- Estilos específicos para resoluciones entre 667px y 1200px -- */
+/*=================================================================*/
+/*  */
+@media (min-width: 667px) and (max-width: 1200px) {
+    .grid.grid-btn.buttonYellowSound.forHorizontal {
+        display: flex;
+        margin: inherit;
+        margin-left: 90%;
+    }
+}
+/*==== ||| FIN - Instrucciones resolución en horizontal  ||||====*/
+
+
+/*======================================*/
+/* -- Estilos Botón alerta WinGems -- */
+/*===================================*/
+.bt-winGem {
+    display: none;
+}
+/*==== ||| FIN - Boton Alerta WinGems  ||||====*/
+
+@media (max-width: 576px) {
+    #winGem .modal-dialog {
+        max-height: calc(100vh - 3rem);
+    }
+
+    #winGem .modal-dialog img {
+        max-height: calc(100vh - 6rem);
+    }
+}
+
+@media (min-width: 576px) {
+
+
+    #winGem .modal-dialog img {
+        max-height: calc(100vh - 7rem);
+    }
+
+    .instructionsNotHorizontal {
+        display: none;
+    }
+}
+
+.buttonsOptions{
+    display: none;
+    position: absolute;
+    margin-left: 13%;
+    margin-top: 20%;
+    z-index: 1;
+}
+@media (max-width: 1201px) {
+    .buttonsOptions{
+        margin-left: 8%;
+        margin-top: 24%;
+        display: grid;
+    }
+}
+
+@media (max-width: 1101px) {
+    .buttonsOptions{
+        margin-left: 5%;
+        margin-top: 26%;
+    }
+}
+@media (max-width: 1000px) {
+    .buttonsOptions{
+        margin-left: 20px;
+        margin-top: 26%;
+    }
+    .instructions {
+        display: none;
+    }
+}
+@media (max-width: 901px) {
+    .buttonsOptions{
+        margin-left: -20px;
+        margin-top: 9vh;
+    }
+    .instructions {
+        display: none;
+    }
+}
+@media (max-width: 768px) {
+    .buttonsOptions{
+        margin-left: -31px;
+        margin-top: 4vh;
+    }
+}
+@media (max-width: 650px) {
+    .buttonsOptions{
+        display: none;
+    }
+}
+@media (max-width: 590px) {
+    .buttonsOptions{
+        margin-top: 40px;
+    }
+}
+@media (max-width: 350px) {
+    .buttonsOptions{
+        display: grid;
+    }
+}
+
+.icon{
+    width: 35px;
+    height: 35px;
+    margin-bottom: 3px;
+    background: none;
+    background-color: #8f8f8f8f;
+    box-shadow: 6px 5px 9px -2px inset white, 0px 0px 5px 2px #0000005c;
+    border: none;
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.icon img{
+    width: 100%;
+    height: auto;
+    filter: contrast(10);
+}
+.borde-shadow {
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
